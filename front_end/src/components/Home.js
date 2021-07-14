@@ -93,8 +93,18 @@ export function Home() {
                 ? blog.description.substring(0, 45) + "..."
                 : blog.description}
             </div>
-            <div style={{ fontSize: ".6rem", marginTop: ".5rem" }}>
-              by {currentUser.user.userName}
+            <div
+              style={{
+                fontSize: ".6rem",
+                marginTop: ".5rem",
+                display: `${
+                  blog.author === currentUser.user.email ? "block" : "none"
+                }`,
+              }}
+            >
+              by{" "}
+              {blog.author === currentUser.user.email &&
+                currentUser.user.userName}
             </div>
           </div>
         ))}
